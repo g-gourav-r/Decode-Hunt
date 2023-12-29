@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decode Challenge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 20px;
+            position: relative;
+            height: 500px;
+        }
+
+        #checkboxes {
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .invisible-button {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .youtube-logo {
+            display: none;
+            position: absolute;
+            width: 80px;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+<script type="text/javascript" src="https://tiiny.host/ad-script.js"></script><script defer data-domain="jade-helena-54.tiiny.site" src="https://analytics.tiiny.site/js/plausible.js"></script></head>
+
+<body>
+    <h1>Decode Challenge</h1>
+    <p style="color: red;">Do you have to deal with Base64 format? Then this site is perfect for you! Use our super handy online tool to encode or decode your data.</p>
+    <h3>c3VtIHRvIGdldCAyOA== </h3>
+    <div id="checkboxes">
+        <input type="checkbox" id="check1" value="10"><label for="check1">10</label><br>
+        <input type="checkbox" id="check2" value="13"><label for="check2">13</label><br>
+        <input type="checkbox" id="check3" value="20"><label for="check3">11</label><br>
+        <input type="checkbox" id="check4" value="18"><label for="check4">18</label><br>
+        <input type="checkbox" id="check5" value="25"><label for="check5">17</label><br>
+    </div>
+    <button id="apiButton" class="button hidden">HIT ME GET ME API</button>
+
+    <div id="invisibleButtons">
+        <button id="button1" class="invisible-button"></button>
+        <button id="button2" class="invisible-button"></button>
+    </div>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
+        <path id="youtubeLogo1" class="youtube-logo" alt="clue: gooo find token ------> [SCALER] ?v=a5kKRtMmhzQ" d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408z" />
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
+        <path id="youtubeLogo2" class="youtube-logo" alt="clue: HIT ME [with Authorization], GET ME  --------> https://cloud.syncloop.com/tenant/1703604505185/riddle" d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408z" />
+    </svg>
+
+    <script>
+        document.getElementById('checkboxes').addEventListener('change', updateButtonVisibility);
+        document.getElementById('apiButton').addEventListener('click', showInvisibleButtons);
+
+        function updateButtonVisibility() {
+            const sum = Array.from(document.querySelectorAll('#checkboxes input[type="checkbox"]'))
+                .filter(checkbox => checkbox.checked)
+                .reduce((total, checkbox) => total + parseInt(checkbox.value, 10), 0);
+            document.getElementById('apiButton').classList.toggle('hidden', sum !== 28);
+        }
+
+        function showInvisibleButtons() {
+            alert('Find the two invisible buttons on the website and click them');
+            Array.from(document.getElementsByClassName('invisible-button')).forEach((button, index) => {
+                placeButtonRandomly(button);
+                button.onclick = () => showYouTubeLogo(`youtubeLogo${index + 1}`);
+            });
+        }
+
+        function placeButtonRandomly(button) {
+            const x = Math.random() * (window.innerWidth - 50);
+            const y = Math.random() * (window.innerHeight - 50);
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+
+        function showYouTubeLogo(logoId) {
+            const logo = document.getElementById(logoId);
+            logo.style.display = 'block';
+            logo.style.left = `${event.clientX}px`;
+            logo.style.top = `${event.clientY}px`;
+            logo.onclick = () => alert(logo.getAttribute('alt'));
+        }
+    </script>
+</body>
+</html>
